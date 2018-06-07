@@ -1,9 +1,11 @@
 {
-  "name": "ws-react-emcc",
+  "name": "ws-emscripten-webpack",
   "version": "1.0.0",
-  "description": "Embed emscripten code in react components",
+  "description": "Make webpack and emscripten work together",
   "main": "build/index.js",
-  "files": ["build/"],
+  "files": [
+    "build/"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch",
@@ -11,11 +13,7 @@
   },
   "author": "David Kirkman",
   "license": "AGPL-3.0",
-  "dependencies": {
-    "file-loader": "^1.1.11",
-    "file-system": "^2.2.2",
-    "raw-loader": "^0.5.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -23,9 +21,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
-    "css-loader": "^0.28.11",
-    "style-loader": "^0.21.0",
     "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15"
+    "webpack-cli": "^2.0.15",
+    "file-loader": "^1.1.11"
   }
 }
