@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-rm -f test.js
-rm -f test.wasm
+rm -f stage/*
 
 emcc -s MODULARIZE=1 -o stage/test.js src/test.c
 cp src/index.js stage/index.js

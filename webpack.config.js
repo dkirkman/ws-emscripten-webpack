@@ -20,21 +20,18 @@ module.exports = {
       { 
         test: /\.wasm$/,
         type: 'javascript/auto',
-        loader: 'file-loader'
+        loader: 'file-loader',
+        options: {
+          name: '[name]-[hash:hex:10].[ext]',         
+        }
       }
     ]
   },
   externals: {
     'react': 'commonjs react' 
   },
-//  target: 'web'
-  target: 'node'
-//  , node: {
-//    fs: 'empty'
-//  }
-
-  , node: {
+  target: 'node',
+  node: {
     __dirname: false
   }
-
 };
