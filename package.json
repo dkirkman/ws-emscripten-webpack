@@ -2,9 +2,9 @@
   "name": "ws-emscripten-webpack",
   "version": "1.0.0",
   "description": "Make webpack and emscripten work together",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "files": [
-    "build/"
+    "dist/"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

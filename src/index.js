@@ -1,5 +1,5 @@
-import test from './test.js';
-import test_wasm from './test.wasm';
+import libTest from './libTest.js';
+import libTest_wasm from './libTest.wasm';
 
 // Same set of tests emscripten uses to work out where it is
 const ENVIRONMENT_IS_WEB = typeof window === 'object';
@@ -17,13 +17,10 @@ export default function(options) {
   let module_options = {
     locateFile: function (path) {
       if(path.endsWith('.wasm')) {
-        console.log('looking for ' + path);
         if (ENVIRONMENT_IS_NODE) {
-          console.log('returing a dirname');
-          return (__dirname + '/' + test_wasm);
+          return (__dirname + '/' + libTest_wasm);
         } else {
-          console.log('returning url ' + (url_prefix + test_wasm));
-          return (url_prefix + test_wasm);
+          return (url_prefix + libTest_wasm);
         }
       }
       return path;
@@ -31,7 +28,7 @@ export default function(options) {
 
   };
 
-  return test(module_options);
+  return libTest(module_options);
 };
 
 

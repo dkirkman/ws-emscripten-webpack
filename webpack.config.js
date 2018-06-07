@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './stage/index.js',
+  entry: './build/index.js',
   devtool: 'sourcemap',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     libraryTarget: 'commonjs2' 
   },
@@ -12,7 +12,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, 'stage'),
+        include: path.resolve(__dirname, 'build'),
         exclude: /(node_modules|bower_components|build|src)/,
         loader: 'babel-loader'
       },

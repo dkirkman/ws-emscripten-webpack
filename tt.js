@@ -1,4 +1,4 @@
-let ttest = require('./build/index.js');
+let ttest = require('./dist/index.js');
 
 console.log('ttest = ' + ttest);
 
