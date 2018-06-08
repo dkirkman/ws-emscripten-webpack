@@ -6,7 +6,7 @@ const ENVIRONMENT_IS_WEB = typeof window === 'object';
 const ENVIRONMENT_IS_WORKER = typeof importScripts === 'function';
 const ENVIRONMENT_IS_NODE = typeof process === 'object' && typeof require === 'function' && !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_WORKER;
 
-export default function(options) {
+export default function(options, cb) {
   let url_prefix = '';
   if (typeof options === 'object' 
       && options['url_prefix'] !== undefined) {
@@ -28,7 +28,17 @@ export default function(options) {
 
   };
 
-  return libTest(module_options);
+  if (typeof options === 'object'
+      && options['asm.js'] === true) {
+    // loading asm.js
+    import(/* webpackChunkName: "libTestAsm" */ 
+      './libTestAsm.js').then(module => {
+        module.default(module_options).then(cspace => cb(cspace));
+      });
+  } else {
+    // loading webpack
+    libTest(module_options).then(cspace => cb(cspace));
+  }
 };
 
 

@@ -6,7 +6,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    libraryTarget: 'commonjs2' 
+    libraryTarget: 'commonjs2',
+    chunkFilename: '[name]-[hash].js'
   },
   module: {
     rules: [
@@ -22,7 +23,7 @@ module.exports = {
         type: 'javascript/auto',
         loader: 'file-loader',
         options: {
-          name: '[name]-[hash:hex:10].[ext]',         
+          name: '[name]-[hash].[ext]',         
         }
       }
     ]
