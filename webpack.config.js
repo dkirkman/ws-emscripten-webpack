@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
+//    library: 'EmscriptenWebpack',
     libraryTarget: 'commonjs2',
     chunkFilename: '[name]-[hash].js'
   },
@@ -32,7 +33,9 @@ module.exports = {
     'react': 'commonjs react' 
   },
   target: 'node',
+//  target: 'web',
   node: {
-    __dirname: false
+    __dirname: false,
+//    fs: 'empty'
   }
 };
