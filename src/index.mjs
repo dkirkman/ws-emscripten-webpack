@@ -10,10 +10,19 @@ let module_options = function(url_prefix) {
   return new Promise(function(resolve, reject) {
     let wasm_name = new Promise(function(resolve, reject) {
       if (nodep) resolve('libTest.wasm');
-      else resolve(import("./libTest.wasm"));
+      else resolve(import(/* webpackChunkName: "wasmName" */ "./libTest.wasm"));
     });
     
     resolve(wasm_name.then(name => {
+      if (typeof name == 'object') name = name.default;
+      console.log('attempting to use name as a promise ... ');
+      console.log(name);
+      console.log(typeof name);
+      console.log('hhdolow');
+
+      console.log('done trying to use name as a promise ...');
+      console.log('name = ' + name);
+      console.log(name);
       return {
         locateFile: function (path) {
           if(path.endsWith('.wasm')) {
@@ -50,7 +59,7 @@ export default function(options, cb) {
 
   } else {
     // loading webpack
-    console.log('loading webpack version of libTest boot boot toot');
+    console.log('loading webpack version of libTest boot boot toot toot');
 
     module_options(url_prefix).then(mopts => {
       import(/* webpackChunkName: "libTest" */ 

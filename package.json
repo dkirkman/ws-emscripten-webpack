@@ -2,14 +2,15 @@
   "name": "ws-emscripten-webpack",
   "version": "1.0.0",
   "description": "Make webpack and emscripten work together",
-  "main": "dist/index.js",
+  "main": "build/index.mjs",
   "files": [
     "dist/"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "bab": "babel build/**/*.mjs --out-dir ."
   },
   "author": "David Kirkman",
   "license": "AGPL-3.0",
@@ -18,11 +19,12 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
+    "file-loader": "^1.1.11",
     "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15",
-    "file-loader": "^1.1.11"
+    "webpack-cli": "^2.0.15"
   }
 }
