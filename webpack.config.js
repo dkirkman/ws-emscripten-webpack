@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './build/index.js',
+  entry: './build/index.mjs',
   devtool: 'sourcemap',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -12,13 +12,14 @@ module.exports = {
   },
   module: {
     rules: [
+/*
       {
-        test: /\.js$/,
+        test: /\.js$|\.mjs$/,
         include: path.resolve(__dirname, 'build'),
         exclude: /(node_modules|bower_components|build|src)/,
         loader: 'babel-loader'
       },
-
+*/
       { 
         test: /\.wasm$/,
         type: 'javascript/auto',

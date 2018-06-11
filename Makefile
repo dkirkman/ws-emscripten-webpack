@@ -11,6 +11,7 @@ build/libTestAsm.js: build/src/libTest.a
 
 copyjs:
 	rsync -r --include '*.js' --include '*/' --exclude '*' src/ build
+	rsync -r --include '*.mjs' --include '*/' --exclude '*' src/ build
 
 cmake:
 	cd build; emmake make
