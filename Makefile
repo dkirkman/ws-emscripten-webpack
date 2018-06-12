@@ -1,7 +1,7 @@
 
-.PHONY: cmake configure copyjs
+.PHONY: make configure copyjs
 
-all: cmake build/libTest.js build/libTestAsm.js copyjs
+all: make build/libTest.js build/libTestAsm.js copyjs
 
 build/libTest.js: build/src/libTest.a
 	emcc -s WASM=1 -s MODULARIZE=1 build/src/libTest.a -o build/libTest.js
@@ -14,7 +14,7 @@ copyjs:
 	rsync -r --include '*.mjs' --include '*/' --exclude '*' src/ build
 	rsync -r --include '*.jsx' --include '*/' --exclude '*' src/ build
 
-cmake: build
+make: build
 	cd build; emmake make
 
 build:
