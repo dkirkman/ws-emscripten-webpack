@@ -14,15 +14,10 @@ let module_options = function(url_prefix) {
     });
     
     resolve(wasm_name.then(name => {
+      // name will have resolved to either a string, or a module.  If it's a 
+      // module, get the name from .default
       if (typeof name == 'object') name = name.default;
-      console.log('attempting to use name as a promise ... ');
-      console.log(name);
-      console.log(typeof name);
-      console.log('hhdolow');
 
-      console.log('done trying to use name as a promise ...');
-      console.log('name = ' + name);
-      console.log(name);
       return {
         locateFile: function (path) {
           if(path.endsWith('.wasm')) {
@@ -69,5 +64,3 @@ export default function(options, cb) {
     });
   }
 };
-
-

@@ -2,7 +2,8 @@
   "name": "ws-emscripten-webpack",
   "version": "1.0.0",
   "description": "Make webpack and emscripten work together",
-  "main": "build/index.mjs",
+  "main": "build",
+  "Foo": "build/Foo",
   "files": [
     "dist/"
   ],

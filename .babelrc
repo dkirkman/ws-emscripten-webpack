@@ -1,9 +1,5 @@
 {
-  "presets": ["es2015", "mjs"],
+  "presets": ["env"],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-react-jsx",
-    "transform-es2015-modules-commonjs",
-    "dynamic-import-node"
   ]
 }

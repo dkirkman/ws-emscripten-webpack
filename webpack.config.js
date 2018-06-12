@@ -1,10 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: {
-    main: './build/index.mjs'
-//    vendor: []
-  },
+  entry: './build/index.mjs',
   devtool: 'sourcemap',
   output: {
     path: path.resolve(__dirname, 'dist'),
