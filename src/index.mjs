@@ -54,7 +54,7 @@ export default function(options, cb) {
 
   } else {
     // loading webpack
-    console.log('loading webpack version of libTest boot boot toot toot');
+    console.log('loading webpack version of libTest');
 
     module_options(url_prefix).then(mopts => {
       import(/* webpackChunkName: "libTest" */ 
