@@ -2,14 +2,14 @@ const path = require('path');
 
 module.exports = {
   entry: './build/index.mjs',
-  devtool: 'sourcemap',
+//  devtool: 'sourcemap',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    library: 'EmscriptenWebpack',
-    chunkFilename: '[name]-[contenthash].js'
+    library: 'CJSCommunication',
+    chunkFilename: '[name]-[id]-[contenthash].js',
   },
-  module: {
+  module: {    
     rules: [
       { 
         test: /\.wasm$/,
@@ -22,7 +22,7 @@ module.exports = {
     ]
   },
 
-  target: 'web',
+  target: 'webworker',
   node: {
     __dirname: false,
     fs: 'empty',
