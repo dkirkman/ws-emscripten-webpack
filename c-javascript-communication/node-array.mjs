@@ -1,4 +1,4 @@
-import ttest from './build/index.mjs';
+import loadEmscripten from './build/LoadEmscripten.mjs';
 
 import fs from 'fs';
 import path from 'path';
@@ -45,7 +45,7 @@ WebAssembly.compile(wasmBytes).then(wasmModule => {
   }
 
   function single_run() {
-    ttest({'asm.js': false, instantiateWasm: instantiateWasm}, cspace => {
+    loadEmscripten({'asm.js': false, instantiateWasm: instantiateWasm}, cspace => {
       let ndat = 100;
       let darr = allocCSpaceArray(cspace, Float64Array, ndat);
 
