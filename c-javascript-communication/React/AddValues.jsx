@@ -8,30 +8,24 @@ class AddValues extends Component {
 
     let asmjs = false;
     if (props.asmjs === 'true') asmjs = true;
-    this.state = {asmjs: asmjs};
+    this.state = {asmjs: asmjs, result: 'unloaded'};
   }
 
   onclick() {   
-    console.log('hey dude, it\'s me, onclick');
-    console.log('hey, worker in place, all fun and games now');
-
-    if (this.state.cspace) return;  // already loaded
-
     let worker = new Worker('index.js');
-    worker.postMessage(12);
     
     worker.addEventListener('message', event => {
-      console.log('holy crap, got a message from the worker!');
-      console.log(event);
-      
+      this.setState({result: event.data});
+      worker.terminate();
     });
+
+    let emcc_options = {'asm.js': this.state.asmjs,
+                        'url_prefix': './'};
+    worker.postMessage(emcc_options);
   }
 
   render() {
-    let result = 'unloaded';
-    if (this.state.cspace) {
-      result = this.state.cspace._add_values(12, 11);
-    }
+    let result = this.state.result;
 
     let loadText = "12 + 11 via WebAssembly";
     if (this.state.asmjs) {
